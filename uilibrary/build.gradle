@@ -1,11 +1,10 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion 24
     buildToolsVersion "25.0.0"
 
     defaultConfig {
-        applicationId "com.yunifang.uilibrary"
         minSdkVersion 15
         targetSdkVersion 24
         versionCode 1
