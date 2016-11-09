@@ -1,1 +1,1 @@
-include ':app', ':uilibrary', ':librarys', ':librarys', ':test'
+include ':app', ':uilibrary', ':librarys', ':librarys', ':test', 'CoordinatorLayout'

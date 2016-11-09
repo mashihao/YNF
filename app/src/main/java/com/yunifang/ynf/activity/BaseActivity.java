@@ -28,6 +28,9 @@ public abstract class BaseActivity extends AppCompatActivity {
         super.setContentView(layoutResId);
         //Butter Knife初始化
         ButterKnife.bind(this);
+        initData();
+        initView();
+        initListener();
     }
 
     /**
@@ -38,6 +41,9 @@ public abstract class BaseActivity extends AppCompatActivity {
         super.setContentView(view);
         //Butter Knife初始化
         ButterKnife.bind(this);
+        initData();
+        initView();
+        initListener();
     }
 
 
@@ -46,21 +52,16 @@ public abstract class BaseActivity extends AppCompatActivity {
         super.setContentView(view,params);
         //Butter Knife初始化
         ButterKnife.bind(this);
+        initData();
+        initView();
+        initListener();
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
         activities.add(this);
         mContext=this;
-        initData();
-        initView();
-        initListener();
-
-
-
     }
     public abstract void initData();
     public abstract void initView();
