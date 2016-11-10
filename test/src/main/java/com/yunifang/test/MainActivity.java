@@ -1,15 +1,20 @@
 package com.yunifang.test;
 
+import android.animation.Animator;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
-import android.widget.Toast;
+import android.view.ViewAnimationUtils;
+import android.view.animation.AccelerateDecelerateInterpolator;
+import android.view.animation.AccelerateInterpolator;
+import android.widget.SearchView;
 
-public class MainActivity extends Base implements View.OnClickListener{
+public class MainActivity extends Base implements View.OnClickListener,SearchView.OnQueryTextListener{
 
 
-    Button show,login;
+    View show,login;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,15 +25,13 @@ public class MainActivity extends Base implements View.OnClickListener{
     public void initData() {
         Log.d("MSH","MainActivity   setContentView()");
 
-        show = (Button) findViewById(R.id.show);
-        login = (Button) findViewById(R.id.login);
+        show =  findViewById(R.id.show);
+        login =  findViewById(R.id.login);
     }
 
     @Override
     public void initView() {
         Log.d("MSH"," MainActivity   setContentView()");
-
-
     }
 
     @Override
@@ -37,26 +40,46 @@ public class MainActivity extends Base implements View.OnClickListener{
         login.setOnClickListener(this);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     public void onClick(View v) {
         switch (v.getId())
         {
             case R.id.show:
+                Animator animator = ViewAnimationUtils.createCircularReveal(
+                        show,
+                        show.getWidth()/2,
+                        show.getHeight()/2,
+                        show.getWidth(),
+                        0);
+                animator.setInterpolator(new AccelerateDecelerateInterpolator());
+                animator.setDuration(2000);
+                animator.start();
 
-                boolean flag = Contants.isLogin;
-                if (flag)
-                {
-                    Toast.makeText(this, "Trun", Toast.LENGTH_SHORT).show();
-                }
-                else
-                {
-                    Toast.makeText(this, "false", Toast.LENGTH_SHORT).show();
-                }
                 break;
 
             case R.id.login:
-                Contants.isLogin=true;
+                Animator animator2 = ViewAnimationUtils.createCircularReveal(
+                        login,
+                        0,
+                        0,
+                        0,
+                        (float) Math.hypot(login.getWidth(), login.getHeight()));
+                animator2.setInterpolator(new AccelerateInterpolator());
+                animator2.setDuration(2000);
+                animator2.start();
+
                 break;
         }
+    }
+
+    @Override
+    public boolean onQueryTextSubmit(String query) {
+        return false;
+    }
+
+    @Override
+    public boolean onQueryTextChange(String newText) {
+        return false;
     }
 }

@@ -15,11 +15,13 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.yunifang.ynf.activity.R;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * Created by MSH on 2016/11/7.
@@ -52,6 +54,10 @@ public class MeFragment extends Fragment {
 
     @Bind(R.id.main_tb_toolbar)
     Toolbar mTbToolbar; // 工具栏
+    @Bind(R.id._iv_mid_setting)
+    ImageView mid_setting;
+    @Bind(R.id._iv_top_setting)
+    ImageView top_setting;
 
     @Nullable
     @Override
@@ -79,6 +85,17 @@ public class MeFragment extends Fragment {
     }
 
 
+    @OnClick({R.id._iv_top_setting, R.id._iv_mid_setting})
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id._iv_top_setting:
+            case R.id._iv_mid_setting:
+                Toast.makeText(getActivity(), "setting", Toast.LENGTH_SHORT).show();
+                break;
+        }
+    }
+
+
 
     // 设置自动滑动的动画效果
     private void initParallaxValues() {
@@ -100,11 +117,13 @@ public class MeFragment extends Fragment {
         if (percentage >= PERCENTAGE_TO_SHOW_TITLE_AT_TOOLBAR) {
             if (!mIsTheTitleVisible) {
                 startAlphaAnimation(mTvToolbarTitle, ALPHA_ANIMATIONS_DURATION, View.VISIBLE);
+                startAlphaAnimation(mid_setting, ALPHA_ANIMATIONS_DURATION, View.VISIBLE);
                 mIsTheTitleVisible = true;
             }
         } else {
             if (mIsTheTitleVisible) {
                 startAlphaAnimation(mTvToolbarTitle, ALPHA_ANIMATIONS_DURATION, View.INVISIBLE);
+                startAlphaAnimation(mid_setting, ALPHA_ANIMATIONS_DURATION, View.INVISIBLE);
                 mIsTheTitleVisible = false;
             }
         }

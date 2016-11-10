@@ -3,4 +3,9 @@
     <color name="colorPrimary">#FF1493</color>
     <color name="colorPrimaryDark">#FF1493</color>
     <color name="colorAccent">#FF4081</color>
+
+    <color name="lightRed">#FFFF6b6b</color>
+    <color name="dartRed">#FFFD3A16</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="defaultTextColor">#454545</color>
 </resources>
