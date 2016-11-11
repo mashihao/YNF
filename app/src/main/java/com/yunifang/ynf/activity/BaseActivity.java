@@ -21,12 +21,13 @@ public abstract class BaseActivity extends AppCompatActivity {
     private static Stack<Activity> activities = new Stack<>();
 
     /**
-     *  使用频率高 一般用于Activity初始化界面
-     *  例如 onCreate()里。初始化布局就用到setContentView(R.layout.xxxx) 就是初始化页面布局
+     * 使用频率高 一般用于Activity初始化界面
+     * 例如 onCreate()里。初始化布局就用到setContentView(R.layout.xxxx) 就是初始化页面布局
      */
     private static final String APPLICATION_ID = "5da2c4810eb4d9ce575fbfe900482f9a";
+
     @Override
-    public void setContentView(int layoutResId){
+    public void setContentView(int layoutResId) {
         super.setContentView(layoutResId);
 
 //        Bmob
@@ -43,7 +44,7 @@ public abstract class BaseActivity extends AppCompatActivity {
      * 这个一般用于加载自定义控件，或者系统空间的布局
      */
     @Override
-    public void setContentView(View view){
+    public void setContentView(View view) {
         super.setContentView(view);
         //Butter Knife初始化
         ButterKnife.bind(this);
@@ -54,8 +55,8 @@ public abstract class BaseActivity extends AppCompatActivity {
 
 
     @Override
-    public void setContentView(View view, ViewGroup.LayoutParams params){
-        super.setContentView(view,params);
+    public void setContentView(View view, ViewGroup.LayoutParams params) {
+        super.setContentView(view, params);
         //Butter Knife初始化
         ButterKnife.bind(this);
         initData();
@@ -67,22 +68,44 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         activities.add(this);
-        mContext=this;
+        mContext = this;
     }
+
     public abstract void initData();
+
     public abstract void initView();
+
     public abstract void initListener();
 
     /**
      * TODO:退出当前应用程序
      */
-    public static void exitApplication(){
-        for(Activity activity : activities){
-            if(activity != null){
+    public static void exitApplication() {
+        for (Activity activity : activities) {
+            if (activity != null) {
                 activity.finish();
             }
         }
         System.exit(0);
+    }
+
+    @Override
+    public void finish() {
+        super.finish();
+        activityOut();
+    }
+
+    /**
+     * TODO activity 之间的切换
+     */
+    public void activityIn() {
+        overridePendingTransition(R.anim.push_right_in,
+                R.anim.push_left_out);
+    }
+
+    public void activityOut() {
+        overridePendingTransition(R.anim.back_left_in,
+                R.anim.back_right_out);
     }
 
 }
