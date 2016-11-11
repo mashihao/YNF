@@ -1,8 +1,8 @@
 package com.yunifang.ynf.activity;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.os.CountDownTimer;
 import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
 import android.view.View;
@@ -11,6 +11,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.yunifang.ynf.model.User;
+import com.yunifang.ynf.utils.CountTimerUtil;
+import com.yunifang.ynf.utils.IToast;
 
 import butterknife.Bind;
 import butterknife.OnClick;
@@ -37,8 +39,9 @@ public class RegisterActivity extends BaseActivity {
     @Bind(R.id._bt_registe)
     Button btRegiste;
 
-    final MyCountTimer timer = new MyCountTimer(60000, 1000);
+    CountTimerUtil timer;
 
+    public static final String REGISTER_TO_LOGIN_PHONE_NUM = "register_phone_num_done";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -48,7 +51,7 @@ public class RegisterActivity extends BaseActivity {
 
     @Override
     public void initData() {
-
+        timer = new CountTimerUtil(this, btRegisterPhoneCode);
     }
 
     @Override
@@ -66,35 +69,41 @@ public class RegisterActivity extends BaseActivity {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id._bt_register_phone_code:
-//                requestSMSCode(etRegisterPhone.getText().toString().trim());
-//                timer.start();
+                requestSMSCode(etRegisterPhone.getText().toString().trim());
                 timerStart();
                 break;
             case R.id._bt_registe:
-
+                registerWithPassword(etRegisterPhone.getText().toString(), etRegisterPassword.getText().toString(), etRegisterPhoneCode.getText().toString());
                 break;
         }
     }
 
 
-    public void registerWithPassword(String password) {
+    /**
+     * TODO 通过手机号, 验证码,密码 注册账号
+     * @param phoneNum
+     * @param password
+     * @param code
+     */
+    public void registerWithPassword(final String phoneNum, String password, String code) {
         User user = new User();
-        user.setMobilePhoneNumber(password);
-        user.setPassword(etRegisterPassword.getText().toString());
-        user.signOrLogin(etRegisterPhoneCode.getText().toString(), new SaveListener<User>() {
+        user.setMobilePhoneNumber(phoneNum);
+        user.setPassword(password);
+        user.signOrLogin(code, new SaveListener<User>() {
             @Override
             public void done(User user, BmobException e) {
                 if (e == null) {
-                    Toast.makeText(RegisterActivity.this, "success", Toast.LENGTH_SHORT).show();
+                    IToast.showToast(RegisterActivity.this, "success");
+                    Intent intent = new Intent(RegisterActivity.this,LoginActivity.class);
+                    intent.putExtra("REGISTER_TO_LOGIN_PHONE_NUM",phoneNum);
+                    startActivity(intent);
                 } else {
-                    Toast.makeText(RegisterActivity.this, e.toString(), Toast.LENGTH_SHORT).show();
+                    IToast.showToast(RegisterActivity.this, e.toString());
                 }
             }
         });
 
     }
-
-
     private void requestSMSCode(String phoneNum) {
 
         // 验证手机号码
@@ -106,12 +115,11 @@ public class RegisterActivity extends BaseActivity {
                     if (ex == null) {//验证码发送成功
                         Toast.makeText(mContext, "success", Toast.LENGTH_SHORT).show();//用于查询本次短信发送详情
                     } else {
+                        IToast.showToast(RegisterActivity.this,"验证码发送失败,请检查手机号!");
                         timerFinish();
                     }
                 }
             });
-
-
         }
     }
 
@@ -136,32 +144,16 @@ public class RegisterActivity extends BaseActivity {
         timer.start();
     }
 
+    /**
+     * TODO  关闭计时器
+     */
     public void timerFinish() {
         btRegisterPhoneCode.setClickable(true);
         btRegisterPhoneCode.setBackgroundResource(R.drawable.rect_red_button);
         btRegisterPhoneCode.setTextColor(ContextCompat.getColor(this, R.color.lightRed));
+        btRegisterPhoneCode.setText("获取验证码");
         if (timer != null) {
             timer.cancel();
-        }
-    }
-
-    /**
-     * TODO  计时器类
-     */
-    class MyCountTimer extends CountDownTimer {
-
-        public MyCountTimer(long millisInFuture, long countDownInterval) {
-            super(millisInFuture, countDownInterval);
-        }
-
-        @Override
-        public void onTick(long millisUntilFinished) {
-            btRegisterPhoneCode.setText((millisUntilFinished / 1000) + "秒后重发");
-        }
-
-        @Override
-        public void onFinish() {
-            btRegisterPhoneCode.setText("发送验证码");
         }
     }
 
@@ -176,6 +168,6 @@ public class RegisterActivity extends BaseActivity {
     @Override
     public void finish() {
         super.finish();
-        activityOut();
+        timerFinish();
     }
 }
