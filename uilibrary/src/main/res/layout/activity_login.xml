@@ -90,6 +90,18 @@
                 android:id="@+id/_et_account_phone_password"
                 style="@style/editTextStyle"
                 android:hint="密码" />
+
+            <TextView
+                android:id="@+id/_tv_forget_password"
+                android:textColor="@color/lightRed"
+                android:paddingLeft="10dp"
+                android:textSize="15dp"
+                android:text="忘记密码?"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+
+
         </LinearLayout>
 
 
