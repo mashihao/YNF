@@ -26,6 +26,7 @@
         <attr name="ci_animator_reverse_u" format="reference"/>
         <attr name="ci_drawable_u" format="reference"/>
         <attr name="ci_drawable_unselected_u" format="reference"/>
+        <attr name="ci_indicator_width" format="integer"/>
     </declare-styleable>
     <declare-styleable name="CircleImageView">
         <attr name="border_width" format="dimension" />

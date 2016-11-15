@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/_tv_detail_title"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/white"
+        android:gravity="center"
+        android:text="Title"
+        android:textSize="20dp" />
+
+    <android.support.design.widget.CoordinatorLayout
+        android:id="@+id/root_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/_tv_detail_title">
+
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/app_bar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <android.support.design.widget.CollapsingToolbarLayout
+                android:id="@+id/collapsing_toolbar_layout"
+                android:layout_width="match_parent"
+                android:layout_height="270dp"
+                app:collapsedTitleTextAppearance="@style/transparentText"
+                app:contentScrim="#46a8ba"
+                app:expandedTitleMarginEnd="48dp"
+                app:expandedTitleMarginStart="48dp"
+                app:expandedTitleTextAppearance="@style/transparentText"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <android.support.v4.view.ViewPager
+                        android:id="@+id/_vp_detail"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+                    <com.yunifang.uilibrary.views.CircleIndicator
+                        android:id="@+id/_detail_indicator"
+                        android:layout_width="fill_parent"
+                        android:layout_height="40dp"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerInParent="true"
+                        android:layout_marginBottom="10dp"
+                        app:ci_indicator_width="5" />
+                </RelativeLayout>
+
+            </android.support.design.widget.CollapsingToolbarLayout>
+
+            <android.support.design.widget.TabLayout
+                android:id="@+id/toolbar_tab"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:layout_gravity="bottom"
+                android:background="#ffffff"
+                android:fillViewport="false"
+                app:layout_scrollFlags="scroll"
+                app:tabIndicatorHeight="2.0dp"
+                app:tabSelectedTextColor="@color/lightRed"
+                app:tabTextColor="#ced0d3">
+
+                <android.support.design.widget.TabItem
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="产品详情" />
+
+                <android.support.design.widget.TabItem
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="产品参数" />
+
+                <android.support.design.widget.TabItem
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="评论" />
+
+
+            </android.support.design.widget.TabLayout>
+
+
+        </android.support.design.widget.AppBarLayout>
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/main_vp_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+    </android.support.design.widget.CoordinatorLayout>
+
+
+    <include
+        layout="@layout/bottom_addcar_buy"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true" />
+
+</RelativeLayout>

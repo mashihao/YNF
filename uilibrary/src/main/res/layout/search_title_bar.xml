@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/lineLayTitle"
+    android:layout_width="fill_parent"
+    android:layout_height="45dp"
+    android:background="@color/lightRed"
+    android:layout_gravity="center_horizontal"
+    android:orientation="horizontal"
+    >
+
+    <ImageView
+        android:layout_margin="5dp"
+        android:id="@+id/txtScanning"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:gravity="center_horizontal"
+        android:layout_gravity="center_vertical"
+        android:background="@mipmap/scanning"
+        />
+
+    <LinearLayout
+        android:id="@+id/lineLaySearch"
+        android:layout_width="fill_parent"
+        android:layout_margin="6dp"
+        android:layout_height="fill_parent"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="1"
+        android:descendantFocusability="blocksDescendants"
+        android:background="@drawable/search_bg" >
+        <ImageView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:src="@mipmap/search_icon"
+           />
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_gravity="center_vertical"
+            android:text="点击我搜索"
+            android:textSize="13dp"
+            android:textColor="@color/help_button_view"/>
+        <!--<EditText-->
+            <!--android:id="@+id/editSearch"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:background="@null"-->
+            <!--android:layout_weight="1"-->
+            <!--android:enabled="false"-->
+            <!--/>-->
+    </LinearLayout>
+    <ImageView
+        android:scaleType="center"
+        android:id="@+id/txtMessage"
+        android:layout_width="30dp"
+        android:background="@mipmap/message"
+        android:gravity="center"
+        android:layout_height="30dp"
+        android:layout_margin="5dp"
+        android:layout_gravity="center" />
+</LinearLayout>

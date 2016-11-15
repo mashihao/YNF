@@ -97,7 +97,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
             android:background="@drawable/circle_button"
-            android:text="登录"
+            android:text="注册"
             android:textColor="@color/lightRed" />
     </LinearLayout>
 </LinearLayout>

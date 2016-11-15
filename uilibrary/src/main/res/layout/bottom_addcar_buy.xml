@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:background="@color/white">
+
+
+    <ImageButton
+        android:id="@+id/_ib_customer_service"
+        android:layout_width="90dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="10dp"
+        android:background="@mipmap/customer_services2" />
+
+
+    <TextView
+        android:id="@+id/_tv_buy_now"
+        android:layout_width="100dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:layout_gravity="right"
+        android:background="@color/lightRed"
+        android:gravity="center"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:text="立即购买"
+        android:textColor="@color/white" />
+
+
+    <TextView
+        android:id="@+id/_tv_add_shop_cart"
+        android:layout_width="100dp"
+        android:layout_height="match_parent"
+        android:layout_toLeftOf="@id/_tv_buy_now"
+        android:background="#f9ffe509"
+        android:gravity="center"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:text="加入购物车"
+        android:textColor="@color/white" />
+
+
+</RelativeLayout>

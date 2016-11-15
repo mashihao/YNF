@@ -15,11 +15,18 @@ public class Guide extends BaseActivity implements ImageFragment.IntentBack {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_guide);
+
+
         ViewPager defaultViewpager = (ViewPager) findViewById(R.id.viewpager_default);
         CircleIndicator defaultIndicator = (CircleIndicator) findViewById(R.id.indicator_default);
-        DemoPagerAdapter defaultPagerAdapter = new DemoPagerAdapter(getSupportFragmentManager(),this);
+        DemoPagerAdapter defaultPagerAdapter = new DemoPagerAdapter(getSupportFragmentManager(), this, ImageFragment.WELCOME_IMAGE);
+
         defaultViewpager.setAdapter(defaultPagerAdapter);
         defaultIndicator.setViewPager(defaultViewpager);
+
+        AppManager.getAppManager().addActivity(Guide.this);
+
+
         AppManager.getAppManager().addActivity(Guide.this);
     }
 
@@ -41,7 +48,7 @@ public class Guide extends BaseActivity implements ImageFragment.IntentBack {
 
     @Override
     public void getIntentCallBack() {
-        Intent intent = new Intent(Guide.this,SplashActivity.class);
+        Intent intent = new Intent(Guide.this, SplashActivity.class);
         startActivity(intent);
     }
 }

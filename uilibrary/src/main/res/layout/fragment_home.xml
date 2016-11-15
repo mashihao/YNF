@@ -1,14 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:background="@color/colorPrimaryDark"
-    android:layout_height="match_parent">
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:background="@color/center_bg"
+    android:orientation="vertical">
 
-    <TextView
-        android:textSize="30dp"
-        android:gravity="center"
-        android:text="Home"
+    <include layout="@layout/search_title_bar" />
+
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <com.baoyz.widget.PullRefreshLayout
+            android:id="@+id/pullRefreshLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.yunifang.uilibrary.views.MyWebView
+                android:id="@+id/webView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+        </com.baoyz.widget.PullRefreshLayout>
+    </FrameLayout>
+    <ListView
+        android:visibility="gone"
+        android:id="@+id/list"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-
+        android:layout_height="wrap_content" />
 </LinearLayout>

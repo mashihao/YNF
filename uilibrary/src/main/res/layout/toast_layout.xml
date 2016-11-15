@@ -11,7 +11,7 @@
         android:background="@color/lightRed"
         android:gravity="center"
         android:text="测试Toast"
-        android:textColor="@color/abc_background_cache_hint_selector_material_light"
+        android:textColor="@color/white"
         android:textSize="18dp" />
 
 </LinearLayout>

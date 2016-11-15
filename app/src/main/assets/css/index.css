@@ -1,0 +1,118 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+html,body{
+    width: 100%;
+    height: 100%;
+}
+a{
+    text-decoration: none;
+}
+li{
+    list-style: none;
+}
+img{width:100%;}
+.box{
+    width: 100%;
+    height: 100%;
+}
+.gdTitle{
+    width: 100%;
+    height: 5%;
+}
+.gdTitle p{
+    text-align: center;
+    font-size: 12px;
+    font-weight:bold;
+    color: #faa1b5;
+    line-height: 33px;
+}
+.header{
+    width: 100%;
+    height:30%;
+    position: relative;
+    overflow: hidden;
+}
+.caro-ul{
+    width: 700%;
+    height: 100%;
+    position:absolute;
+    top:0;
+    left:0;
+}
+.caro-li{
+    width: 14.28%;
+    height: 100%;
+    display: inline-block;
+    float:left;
+}
+.caro-li img{
+    width: 100%;
+    height: 100%;
+}
+.caro-btn{
+    position: absolute;
+    right:12px;
+    bottom:20px;
+}
+.btn-li{
+    float: left;
+    width: 10px;
+    height:10px;
+    border-radius:50%;
+    background: #ccc;
+    margin-right:10px;
+}
+.btn-style{
+    width: 20px;
+    height: 10px;
+    border-radius:5px;
+    background: #fff;
+}
+
+.aBtn{ position: absolute;
+    top: 50%;
+    margin-top: -25px;
+    height: 50px;
+    line-height: 50px;
+    width: 60px;
+    background-color: rgba(0,0,0,.3);
+    color: rgba(255,255,255,.8);
+    font-size: 30px;
+    text-align: center;
+    left: 0;
+    font-family:"inherit" ;
+    font-weight: bold;
+    z-index: 1000;
+}
+#next { right:0; left: auto}
+
+.main{
+    width:100%;
+    height: auto;
+}
+.warp{
+    width: 100%;
+    box-sizing:border-box;
+    display: inline-block;
+}
+.warp li{
+    width:45%;
+    float: left;
+    border: 1px solid #ccc;
+    display: inline-block;
+    margin: 2%;
+}
+.warp li p{
+    width: 100%;
+    line-height: 20px;
+    font-size: 12px;
+    color:#ccc;
+}
+.warp li span{
+    color: red;
+}
+.warp li .p4{
+	color: #000;
+}

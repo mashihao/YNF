@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="16dp"
+    android:background="@mipmap/gray"
+    android:orientation="vertical">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/white">
+
+        <TextView
+            android:id="@+id/_tv_set_title_back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:gravity="center_vertical"
+            android:paddingLeft="16dp"
+            android:text="返回"
+            android:textColor="@color/lightRed"
+            android:textSize="20dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:gravity="center_vertical"
+            android:paddingRight="16dp"
+            android:text="设置"
+            android:textSize="20dp" />
+    </RelativeLayout>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/_tv_set_Buyer_Reading"
+                style="@style/settingTextView"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="购物须知" />
+
+            <TextView
+                android:id="@+id/_tv_set_Suggestion_Feedback"
+                style="@style/settingTextView"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="意见反馈" />
+
+            <TextView
+                android:id="@+id/_tv_set_Clear_Cache"
+                style="@style/settingTextView"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="清除缓存" />
+
+            <TextView
+                android:id="@+id/_tv_set_About_Us"
+                style="@style/settingTextView"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="关于我们" />
+
+            <TextView
+                android:id="@+id/_tv_set_Call"
+                style="@style/settingTextView"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="拨打电话" />
+
+            <TextView
+                android:id="@+id/_tv_set_Update"
+                style="@style/settingTextView"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="检验更新" />
+
+
+            <Button
+                android:id="@+id/_bt_set_logout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/round_red_button"
+                android:text="退出登录"
+                android:textColor="@color/white" />
+
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+
+</LinearLayout>

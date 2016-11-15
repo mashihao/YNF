@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#FF1493</color>
-    <color name="colorPrimaryDark">#FF1493</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorPrimary">#FFFF6b6b</color>
+    <color name="colorPrimaryDark">#FFFF6b6b</color>
+    <color name="colorAccent">#FFFF6b6b</color>
 
     <color name="lightRed">#FFFF6b6b</color>
     <color name="dartRed">#FFFD3A16</color>
     <color name="white">#FFFFFFFF</color>
     <color name="defaultTextColor">#454545</color>
     <color name="gray">#b4b4b4</color>
+    <color name="help_button_view">#ffcccccc</color>
+    <color name="center_bg">#f5f5f5</color>
+    <color name="top_bg">#00000000</color>
+    <color name="calendar_top_bg">#F5A0B3</color>
 </resources>

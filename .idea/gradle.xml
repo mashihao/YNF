@@ -10,6 +10,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/CoordinatorLayout" />
+            <option value="$PROJECT_DIR$/PullRefreshLayoutlibrary" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/librarys" />
             <option value="$PROJECT_DIR$/test" />

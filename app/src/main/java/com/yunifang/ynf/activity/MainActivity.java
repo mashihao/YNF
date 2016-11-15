@@ -17,7 +17,6 @@ import com.yunifang.ynf.fragment.MeFragment;
 
 public class MainActivity extends BaseActivity implements ImageFragment.IntentBack, View.OnClickListener {
 
-
     private int mFinishCount = 0;
     /**
      * TODO 用于展示   首页   的Fragment
@@ -91,8 +90,7 @@ public class MainActivity extends BaseActivity implements ImageFragment.IntentBa
      */
     private FragmentManager fragmentManager;
 
-    public MainActivity() {
-    }
+    private RefreshCallback rc;//定义一个接口
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -100,10 +98,11 @@ public class MainActivity extends BaseActivity implements ImageFragment.IntentBa
         setContentView(R.layout.activity_main);
         fragmentManager = getFragmentManager();
 
-
         setTabSelection(0);
 
     }
+
+
 
     @Override
     public void initData() {
@@ -203,6 +202,15 @@ public class MainActivity extends BaseActivity implements ImageFragment.IntentBa
     public boolean dispatchTouchEvent(MotionEvent ev) {
         mFinishCount = 0;
         return super.dispatchTouchEvent(ev);
+    }
+
+    //定义一个是否刷新界面
+    public interface RefreshCallback {
+        void isRefresh(boolean flag);
+    }
+
+    public void setRefresh(RefreshCallback rc) {
+        this.rc = rc;
     }
 
 

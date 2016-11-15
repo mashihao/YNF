@@ -13,7 +13,6 @@ import android.widget.SearchView;
 
 public class MainActivity extends Base implements View.OnClickListener,SearchView.OnQueryTextListener{
 
-
     View show,login;
 
     @Override

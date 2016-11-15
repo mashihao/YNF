@@ -2,8 +2,6 @@ package com.yunifang.ynf;
 
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
 /**
  * Example local unit test, which will execute on the development machine (host).
  *
@@ -12,6 +10,11 @@ import static org.junit.Assert.*;
 public class ExampleUnitTest {
     @Test
     public void addition_isCorrect() throws Exception {
-        assertEquals(4, 2 + 2);
+        int []a = {1,2,3,4,5,6};
+        int [] b = {1,2};
+        a = b;
+        for (int i = 0; i < a.length; i++) {
+            System.out.println(a[i]);
+        }
     }
 }

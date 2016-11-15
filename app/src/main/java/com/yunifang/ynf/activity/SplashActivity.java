@@ -30,6 +30,9 @@ public class SplashActivity extends BaseActivity {
         timer.start();
     }
 
+
+
+
     @Override
     public void initData() {
 

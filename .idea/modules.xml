@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/CoordinatorLayout/CoordinatorLayout.iml" filepath="$PROJECT_DIR$/CoordinatorLayout/CoordinatorLayout.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PullRefreshLayoutlibrary/PullRefreshLayoutlibrary.iml" filepath="$PROJECT_DIR$/PullRefreshLayoutlibrary/PullRefreshLayoutlibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/YNF.iml" filepath="$PROJECT_DIR$/YNF.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/librarys/librarys.iml" filepath="$PROJECT_DIR$/librarys/librarys.iml" />

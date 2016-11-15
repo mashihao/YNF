@@ -2,6 +2,7 @@ package com.yunifang.ynf.fragment;
 
 
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.AppBarLayout;
@@ -15,9 +16,10 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.yunifang.ynf.activity.LoginActivity;
 import com.yunifang.ynf.activity.R;
+import com.yunifang.ynf.activity.SettingActivity;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -39,6 +41,9 @@ public class MeFragment extends Fragment {
 
     @Bind(R.id.main_iv_placeholder)
     ImageView mIvPlaceholder; // 大图片
+
+    @Bind(R.id._ci_small)
+    ImageView mCiSmall;
 
     @Bind(R.id.main_ll_title_container)
     LinearLayout mLlTitleContainer; // Title的LinearLayout
@@ -66,7 +71,6 @@ public class MeFragment extends Fragment {
         View me = inflater.inflate(R.layout.fragment_me, container, false);
         ButterKnife.bind(this, me);
         mTbToolbar.setTitle("");
-
         // AppBar的监听
         mAblAppBar.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
             @Override
@@ -85,16 +89,18 @@ public class MeFragment extends Fragment {
     }
 
 
-    @OnClick({R.id._iv_top_setting, R.id._iv_mid_setting})
+    @OnClick({R.id._iv_top_setting, R.id._iv_mid_setting, R.id._ci_small})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id._iv_top_setting:
             case R.id._iv_mid_setting:
-                Toast.makeText(getActivity(), "setting", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(getActivity(), SettingActivity.class));
+                break;
+            case R.id._ci_small:
+                startActivity(new Intent(getActivity(), LoginActivity.class));
                 break;
         }
     }
-
 
 
     // 设置自动滑动的动画效果
@@ -154,6 +160,7 @@ public class MeFragment extends Fragment {
         alphaAnimation.setFillAfter(true);
         v.startAnimation(alphaAnimation);
     }
+
     @Override
     public void onDestroyView() {
         super.onDestroyView();

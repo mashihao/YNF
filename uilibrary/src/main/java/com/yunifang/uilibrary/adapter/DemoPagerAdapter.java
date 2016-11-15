@@ -9,22 +9,28 @@ import com.yunifang.uilibrary.views.ImageFragment;
 
 
 public class DemoPagerAdapter extends FragmentPagerAdapter {
-	private Context context;
-	public DemoPagerAdapter(FragmentManager fm, Context context) {
-		super(fm);
-		this.context = context;
-		// TODO Auto-generated constructor stub
-	}
+    private Context context;
+    private int style;
 
-	@Override
-	public Fragment getItem(int arg0) {
-		// TODO Auto-generated method stub
-		return ImageFragment.newInstance(arg0,context);
-	}
+    public DemoPagerAdapter(FragmentManager fm, Context context, int style) {
+        super(fm);
+        this.context = context;
+        this.style = style;
+        // TODO Auto-generated constructor stub
+    }
 
-	@Override
-	public int getCount() {
-		// TODO Auto-generated method stub
-		return ImageFragment.image.length;
-	}
+    @Override
+    public Fragment getItem(int arg0) {
+        // TODO Auto-generated method stub
+        return ImageFragment.newInstance(arg0, context, style);
+    }
+
+    @Override
+    public int getCount() {
+        // TODO Auto-generated method stub
+        if (ImageFragment.GOODS_DETAIL == style) {
+            return ImageFragment.image2.length;
+        } else
+            return ImageFragment.image.length;
+    }
 }
