@@ -2,6 +2,7 @@ package com.yunifang.ynf.fragment;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -15,6 +16,7 @@ import android.widget.ListView;
 
 import com.baoyz.widget.PullRefreshLayout;
 import com.yunifang.uilibrary.views.MyWebView;
+import com.yunifang.ynf.activity.GoodsDetailActivity;
 import com.yunifang.ynf.activity.MainActivity;
 import com.yunifang.ynf.activity.R;
 import com.yunifang.ynf.utils.IToast;
@@ -127,6 +129,7 @@ public class HomeFragment extends BaseFragment implements MainActivity.RefreshCa
         webView.getSettings().setDatabaseEnabled(true);
         webView.loadUrl("file:///android_asset/index.html");
         webViewScroolChangeListener();
+        webView.setOnClickListener(this);
 
 
         pullRefreshLayout = (PullRefreshLayout) getView().findViewById(R.id.pullRefreshLayout);
@@ -211,6 +214,9 @@ public class HomeFragment extends BaseFragment implements MainActivity.RefreshCa
             case R.id.lineLaySearch:
                 break;
             case R.id.txtMessage:
+                break;
+            case R.id.webView:
+                startActivity(new Intent(getActivity(), GoodsDetailActivity.class));
                 break;
         }
     }
